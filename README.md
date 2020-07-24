@@ -42,4 +42,3 @@ sudo apt-get install python-opencv
 ![Result](https://github.com/aakashjhawar/face-recognition-using-opencv/blob/master/images/output1.png)
 
 
-[![HitCount](http://hits.dwyl.com/aakashjhawar/face-recognition-using-deep-learning.svg)](http://hits.dwyl.com/aakashjhawar/face-recognition-using-deep-learning)
