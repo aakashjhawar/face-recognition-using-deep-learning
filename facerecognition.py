@@ -33,6 +33,12 @@ percent = 0
 
 class FaceRecognition:
     def __init__(self, cameraIndex):
+        """
+        Initialize the class.
+        Required argument: cameraIndex => 0 if you have only one camera, test if more.
+        Warning: HDMI displays are considered as cameras (wth?).
+        Returns nothing.
+        """
         self.cameraIndex = int(cameraIndex)
 
         # Using pycharm, you have to run from terminal or paths doesn't work
@@ -51,6 +57,11 @@ class FaceRecognition:
         self.total = 0
 
     def extract(self):
+        """
+        Extract the faces from the dataset's pictures.
+        Save the embeddings and the names in a pickle file.
+        Returns nothing, no arguments required.
+        """
         print("Loading Face Detection Model...")
         print("Quantifying Faces...")
         image_paths = list(paths.list_images(self.dataset))
@@ -104,6 +115,8 @@ class FaceRecognition:
     def create_directory(self, username):
         """
         Create a directory for the user.
+        Required argument: username
+        Returns nothing.
         """
         directory = username
         path = os.path.join(self.dataset, directory)
@@ -119,7 +132,9 @@ class FaceRecognition:
 
     def implement_dataset(self, username):
         """
-        Implement the dataset for face recognition.
+        Implement the dataset for face recognition : takes 60 pictures of the user in 30sec.
+        Required argument: username
+        Returns nothing.
         """
 
         directory = username
@@ -150,6 +165,11 @@ class FaceRecognition:
         cv2.destroyAllWindows()
 
     def train(self):
+        """
+        Train the model.
+        Returns nothing, no arguments required.
+        """
+
         # dump the facial embeddings + names to disk
         print("[INFO] serializing {} encodings...".format(self.total))
         data = {"embeddings": self.knownEmbeddings, "names": self.knownNames}
@@ -187,6 +207,12 @@ class FaceRecognition:
         print('[INFO] model trained !')
 
     def recognition(self):
+        """
+        Recognize the face.
+        Returns the name and the probability of the recognition in a tuple.
+        No arguments required.
+        """
+
         # Load the serialized face detector
         global percent
         print("Loading face detector...")
