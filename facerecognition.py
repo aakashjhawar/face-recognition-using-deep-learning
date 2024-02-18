@@ -304,7 +304,7 @@ class FaceRecognition:
 # Testing the class
 if __name__ == "__main__":
     face_recognition = FaceRecognition(cameraIndex=0)
-    # face_recognition.implement_dataset(username='test')
+    face_recognition.implement_dataset(username='Aweirdwhale') # Comment this line to avoid implementing the dataset
     face_recognition.extract()
-    face_recognition.train()
+    face_recognition.train() # You'll have to add at least 2 users to train the model
     print(face_recognition.recognition())
